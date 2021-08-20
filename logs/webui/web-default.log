@@ -1,0 +1,33 @@
+2021-07-07 17:00:28.379 [main] INFO  c.t.terchnicalsummary.TerchnicalSummaryApplication - Starting TerchnicalSummaryApplication on PC-20190109ZKBD with PID 1308 (D:\workspace\demo\terchnical-summary\target\classes started by Administrator in D:\workspace\demo\terchnical-summary)
+2021-07-07 17:00:28.381 [main] INFO  c.t.terchnicalsummary.TerchnicalSummaryApplication - No active profile set, falling back to default profiles: default
+2021-07-07 17:00:29.026 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-07 17:00:29.027 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-07-07 17:00:29.055 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2021-07-07 17:00:29.507 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2021-07-07 17:00:29.515 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2021-07-07 17:00:29.516 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-07 17:00:29.516 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2021-07-07 17:00:29.603 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-07 17:00:29.603 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1152 ms
+2021-07-07 17:00:29.869 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-07 17:00:29.962 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-07-07 17:00:30.479 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2021-07-07 17:00:30.503 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2021-07-07 17:00:30.511 [main] INFO  c.t.terchnicalsummary.TerchnicalSummaryApplication - Started TerchnicalSummaryApplication in 2.754 seconds (JVM running for 3.769)
+2021-07-07 17:00:51.692 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-07-07 17:10:32.028 [main] INFO  c.t.terchnicalsummary.TerchnicalSummaryApplication - Starting TerchnicalSummaryApplication on PC-20190109ZKBD with PID 22412 (D:\workspace\demo\terchnical-summary\target\classes started by Administrator in D:\workspace\demo\terchnical-summary)
+2021-07-07 17:10:32.031 [main] INFO  c.t.terchnicalsummary.TerchnicalSummaryApplication - No active profile set, falling back to default profiles: default
+2021-07-07 17:10:32.563 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-07 17:10:32.565 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-07-07 17:10:32.589 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2021-07-07 17:10:32.998 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2021-07-07 17:10:33.005 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2021-07-07 17:10:33.006 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-07 17:10:33.006 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2021-07-07 17:10:33.151 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-07 17:10:33.151 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1064 ms
+2021-07-07 17:10:33.418 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-07 17:10:34.064 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2021-07-07 17:10:34.086 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2021-07-07 17:10:34.095 [main] INFO  c.t.terchnicalsummary.TerchnicalSummaryApplication - Started TerchnicalSummaryApplication in 2.533 seconds (JVM running for 3.217)
+2021-07-07 17:29:29.368 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'

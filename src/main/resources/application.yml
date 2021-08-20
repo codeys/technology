@@ -1,0 +1,57 @@
+server:
+  port: 8081
+
+spring:
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.16.22.124:3306/person?serverTimezone=UTC&characterEncoding=utf8
+    username: root
+    password: jitums
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 25
+    filters: stat,wall,slf4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    useGlobalDataSourceStat: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: spc
+    database: 0
+    timeout: 2000
+  redis-two:
+    host: 127.0.0.1
+    port: 6379
+    password: spc
+    timeout: 1000
+    database: 2
+    pool:
+      max-active: 10
+      max-idle: 8
+      min-idle: 2
+      max-wait: 100
+#  resources:
+#    static-locations: classpath:/static/**
+#  mvc:
+#    static-path-pattern: classpath:/static/**
+
+mybatis:
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  type-aliases-package: com.technical.terchnicalsummary.model
+
+
