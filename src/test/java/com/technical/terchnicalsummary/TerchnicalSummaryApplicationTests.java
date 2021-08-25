@@ -8,6 +8,7 @@ import com.technical.terchnicalsummary.mapper.UserMapper;
 import com.technical.terchnicalsummary.model.User;
 import com.technical.terchnicalsummary.service.IBuy;
 import com.technical.terchnicalsummary.service.impl.Boy;
+import com.technical.terchnicalsummary.utils.ElasticUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +65,14 @@ class TerchnicalSummaryApplicationTests {
     void testRedis() {
         redisTemplate.opsForValue().set("name","yushuai");
         redisTemplate0.opsForValue().set("name","lisi");
+    }
+
+    @Autowired
+    ElasticUtils elasticUtils;
+    @Test
+    void elastic() {
+        elasticUtils.createIndex("user");
+//        elasticUtils.deleteIndex("user");
     }
 
 }
