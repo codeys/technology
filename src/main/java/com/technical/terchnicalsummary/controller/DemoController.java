@@ -10,6 +10,7 @@ import com.technical.terchnicalsummary.aop.annotion.Around;
 import com.technical.terchnicalsummary.config.aop.RecordLogAspect;
 import com.technical.terchnicalsummary.service.IBuy;
 import com.technical.terchnicalsummary.service.impl.Boy;
+import com.technical.terchnicalsummary.utils.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,11 +22,14 @@ public class DemoController {
 
     @Autowired
     Boy boy;
+    @Autowired
+    RedisUtils redisUtils;
 
     @ResponseBody
     @RequestMapping("/aop")
     @Around(clazz = RecordLogAspect.class)
     public String aop() {
+        redisUtils.set("age","111");
         boy.buy();
         return "test";
     }

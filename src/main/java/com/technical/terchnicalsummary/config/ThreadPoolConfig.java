@@ -7,7 +7,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /*
  * @ClassName ThreadPoolConfig
@@ -40,8 +43,30 @@ public class ThreadPoolConfig {
         executor.setCorePoolSize(corePoolSize);
         executor.setQueueCapacity(queueCapacity);
         executor.setKeepAliveSeconds(keepAliveSeconds);
+        executor.setThreadFactory(new CustomThreadFactory());
         // 线程池对拒绝任务(无线程可用)的处理策略
-        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+//        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
+        executor.setRejectedExecutionHandler(new CustomRejectedExecutionHandler());
         return executor;
     }
+
+    private class CustomRejectedExecutionHandler implements RejectedExecutionHandler {
+        private int errorNum = 0;
+        @Override
+        public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
+            errorNum++;
+            System.out.println("error....." + errorNum);
+        }
+    }
+
+    private class CustomThreadFactory implements ThreadFactory {
+        private AtomicInteger atomicInteger = new AtomicInteger(0);
+        @Override
+        public Thread newThread(Runnable r) {
+            Thread thread = new Thread(r);
+            thread.setName("testPool" + "-->" + atomicInteger.addAndGet(1));
+            return thread;
+        }
+    }
+
 }

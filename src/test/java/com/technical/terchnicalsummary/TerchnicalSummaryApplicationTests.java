@@ -10,14 +10,18 @@ import com.technical.terchnicalsummary.service.IBuy;
 import com.technical.terchnicalsummary.service.impl.Boy;
 import com.technical.terchnicalsummary.utils.ElasticUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.elasticsearch.action.get.GetRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import sun.nio.ch.ThreadPool;
 import sun.rmi.runtime.Log;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -71,8 +75,26 @@ class TerchnicalSummaryApplicationTests {
     ElasticUtils elasticUtils;
     @Test
     void elastic() {
-        elasticUtils.createIndex("user");
-//        elasticUtils.deleteIndex("user");
+        elasticUtils.isExistDocument("user");
+    }
+
+    @Autowired
+    ThreadPoolTaskExecutor threadPoolTaskExecutor;
+    @Test
+    void threadPool(){
+        for (int i = 0; i < 10; i++) {
+            threadPoolTaskExecutor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        System.out.println(Thread.currentThread().getName() + ">>>task is running=====");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+
     }
 
 }
