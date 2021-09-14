@@ -12,8 +12,8 @@ spring:
     username: root
     password: jitums
     type: com.alibaba.druid.pool.DruidDataSource
-    initialSize: 5
-    minIdle: 5
+    initialSize: 10
+    minIdle: 10
     maxActive: 20
     maxWait: 60000
     timeBetweenEvictionRunsMillis: 60000

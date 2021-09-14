@@ -14,6 +14,10 @@
         insert into USER values(#{id,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},#{userAge,jdbcType=VARCHAR},#{gender,jdbcType=VARCHAR})
     </insert>
 
+    <update id="updateUser">
+        update USER set user_name='yushuai' where ID='2'
+    </update>
+
     <select id="getUserByPage" databaseId="mysql" resultType="User">
         select * from USER
     </select>

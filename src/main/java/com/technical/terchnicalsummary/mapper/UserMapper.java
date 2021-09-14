@@ -16,5 +16,7 @@ public interface UserMapper {
 
     void insertUser(User user);
 
+    void updateUser();
+
     List<User> getUserByPage();
 }
