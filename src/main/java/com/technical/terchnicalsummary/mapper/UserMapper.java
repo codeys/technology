@@ -7,6 +7,7 @@ package com.technical.terchnicalsummary.mapper;
  **/
 
 import com.technical.terchnicalsummary.model.User;
+import com.technical.terchnicalsummary.model.Users;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface UserMapper {
     void updateUser();
 
     List<User> getUserByPage();
+
+    Users getUsersByUserName(Users users);
 }

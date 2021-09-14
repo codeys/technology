@@ -25,4 +25,8 @@
     <select id="getUserByPage" databaseId="oracle" resultType="User">
         select * from USER
     </select>
+
+    <select id="getUsersByUserName" parameterType="Users" resultType="Users">
+        select id,username,password from USERS where username = #{username}
+    </select>
 </mapper>
