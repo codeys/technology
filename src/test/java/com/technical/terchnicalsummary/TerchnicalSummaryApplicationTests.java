@@ -12,6 +12,7 @@ import com.technical.terchnicalsummary.utils.ElasticUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.get.GetRequest;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,7 +23,9 @@ import sun.rmi.runtime.Log;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @SpringBootTest
@@ -94,6 +97,20 @@ class TerchnicalSummaryApplicationTests {
                 }
             });
         }
+
+    }
+
+    @Test
+    void stream() {
+        List<String> list = Arrays.asList("abc","","ab","d");
+        List<String> filterList = list.stream().filter(e -> !StringUtils.isBlank(e)).collect(Collectors.toList());
+        System.out.println(filterList);
+
+        List<Integer> list1 = Arrays.asList(1,2,3,3);
+        List<Integer> filterList1 = list1.stream().map( e -> {
+            return e * e;
+        }).distinct().collect(Collectors.toList());
+        System.out.println(filterList1);
 
     }
 

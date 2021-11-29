@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://172.16.22.124:3306/person?serverTimezone=UTC&characterEncoding=utf8
     username: root
-    password: jitums
+    password: 1qaz@WSX
     type: com.alibaba.druid.pool.DruidDataSource
     initialSize: 10
     minIdle: 10
