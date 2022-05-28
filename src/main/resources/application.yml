@@ -61,4 +61,13 @@ mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
   type-aliases-package: com.technical.terchnicalsummary.model
 
+my:
+  thread:
+    pool:
+      coreSize: 6
+      maxSize: 20
+      keepAliveTimeSeconds: 5
+      queueCapacity: 5000
+
+
 

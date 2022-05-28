@@ -15,9 +15,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
+@RequestMapping("/bim-server/api/rest/customization/ExtApiCustomCisService")
 public class LoginController {
 
     @GetMapping("/loginPage")
@@ -107,7 +110,8 @@ public class LoginController {
      * @PreFilter: 进入控制器之前对数据进行过滤
      * @return
      */
-    @RequestMapping("/getAll")
+    @RequestMapping("/getALl")
+    @ResponseBody
     @PreAuthorize("hasRole('ROLE_管理员')")
     @PostFilter("filterObject.username == 'admin1'")
     public List<Users> getAllUser(){
@@ -126,5 +130,17 @@ public class LoginController {
             System.out.println(t.toString());
         });
         return list;
+    }
+
+    @PostMapping("/setRiskScore")
+    @ResponseBody
+    public Map getScore() {
+        Map<String, Object> result = new HashMap<>();
+        result.put("success",true);
+        result.put("data", null);
+        result.put("errorCode", null);
+        result.put("errorName", null);
+        result.put("errorMessage", null);
+        return result;
     }
 }

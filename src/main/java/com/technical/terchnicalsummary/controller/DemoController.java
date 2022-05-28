@@ -12,20 +12,17 @@ import com.technical.terchnicalsummary.config.aop.RecordLogAspect;
 import com.technical.terchnicalsummary.config.listener.event.MyEvent;
 import com.technical.terchnicalsummary.mapper.UserMapper;
 import com.technical.terchnicalsummary.model.Users;
-import com.technical.terchnicalsummary.service.IBuy;
 import com.technical.terchnicalsummary.service.impl.Boy;
 import com.technical.terchnicalsummary.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.cxf.endpoint.Client;
+import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -88,5 +85,19 @@ public class DemoController {
     @RequestMapping("/submitForm")
     public String submitForm(String name,String age) {
         return "form";
+    }
+
+    @ResponseBody
+    @RequestMapping("/getUserId")
+    public String webservice(){
+        JaxWsDynamicClientFactory dcflient=JaxWsDynamicClientFactory.newInstance();
+        Client client=dcflient.createClient("http://localhost:8081/services/user?wsdl");
+        try {
+            Object[] objects = client.invoke("getUserById", "1");
+            return JSON.toJSONString(objects);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 }
