@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/bim-server/api/rest/customization/ExtApiCustomCisService")
 public class LoginController {
 
     @GetMapping("/loginPage")
