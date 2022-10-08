@@ -1,5 +1,10 @@
 server:
   port: 8081
+#  ssl:
+#    key-store: classpath:cert/keystore.p12
+#    key-store-password: 123456
+#    key-store-type: PKCS12
+#    key-alias: tomcat
 
 spring:
   thymeleaf:
@@ -8,9 +13,9 @@ spring:
     suffix: .html
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://172.16.22.124:3306/person?serverTimezone=UTC&characterEncoding=utf8
-    username: root
-    password: 1qaz@WSX
+    url: jdbc:mysql://172.16.24.149:3308/hw_ums?serverTimezone=UTC&characterEncoding=utf8
+    username: hw
+    password: 1qaz2wsx!QAZ@WSX
     type: com.alibaba.druid.pool.DruidDataSource
     initialSize: 10
     minIdle: 10
