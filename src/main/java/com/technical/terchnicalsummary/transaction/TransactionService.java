@@ -16,6 +16,7 @@ public class TransactionService {
     @Autowired
     TransactionServiceB transactionServiceB;
 
+
 //    @Transactional
     public void A() {
 //        String sql = "update user set name='3' where code = 'n1' ";
