@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <span th:text="${session.username}"></span>:登录成功
+    <a href="./logout">退出登录</a>
+    <a href="./userRoles">验证角色</a>
+    <a href="./userPermissions">验证权限</a>
+    <p shiro:hasRole="admin">验证角色html</p>
+    <p shiro:hasPermission="user:select">验证权限html</p>
+</body>
+</html>
