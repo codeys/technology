@@ -12,6 +12,8 @@ import com.technical.terchnicalsummary.config.aop.RecordLogAspect;
 import com.technical.terchnicalsummary.config.listener.event.MyEvent;
 import com.technical.terchnicalsummary.mapper.UserMapper;
 import com.technical.terchnicalsummary.model.Users;
+import com.technical.terchnicalsummary.queue.LogEntity;
+import com.technical.terchnicalsummary.queue.LogQueue;
 import com.technical.terchnicalsummary.service.impl.Boy;
 import com.technical.terchnicalsummary.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +22,8 @@ import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -99,5 +103,17 @@ public class DemoController {
             e.printStackTrace();
         }
         return "";
+    }
+
+    @GetMapping("/log/{content}")
+    @ResponseBody
+    public String recordLog(@PathVariable("content") String content) {
+        LogEntity logEntity = new LogEntity("zhangsan", "2022.1.1", content);
+        try {
+            LogQueue.push(logEntity);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "success";
     }
 }

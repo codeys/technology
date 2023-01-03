@@ -16,7 +16,7 @@ public class TerchnicalSummaryApplication {
         System.out.println("服务启动开始。。。");
         ConfigurableApplicationContext applicationContext = SpringApplication.run(TerchnicalSummaryApplication.class, args);
         SpringUtils.setApplicationContext(applicationContext);
-        System.out.println("服务启动结束。。。");
+        System.out.println("服务启动成功。。。");
     }
 
 }

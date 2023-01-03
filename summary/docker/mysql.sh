@@ -8,6 +8,10 @@ docker run -d --name docker-mariadb-10.3.35 -p 3308:3306 -e MYSQL_ROOT_PASSWORD=
  -v /opt/docker/mysql/my.cnf:/etc/mysql/my.cnf  \
  mariadb:10.3.35
 
+use mysql;
+ALTER USER 'root'@'%' IDENTIFIED BY '1qaz@WSX' PASSWORD EXPIRE NEVER;
+	ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '1qaz@WSX';
+	FLUSH PRIVILEGES;
 
 [mysqld]
 skip-name-resolve
