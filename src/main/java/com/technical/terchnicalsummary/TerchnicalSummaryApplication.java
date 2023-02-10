@@ -6,10 +6,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 @MapperScan(basePackages = {"com.technical.terchnicalsummary.mapper"})
 //@EnableGlobalMethodSecurity(securedEnabled=true,prePostEnabled = true)
+//@EnableRedisHttpSession
 public class TerchnicalSummaryApplication {
 
     public static void main(String[] args) {

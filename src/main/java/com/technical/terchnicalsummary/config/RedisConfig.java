@@ -6,6 +6,7 @@ package com.technical.terchnicalsummary.config;
  * @Date 2021/8/4 14:23
  **/
 
+import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +15,7 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -82,5 +84,13 @@ public class RedisConfig {
         jedisFactory.setPoolConfig(poolConfig);
         jedisFactory.afterPropertiesSet(); // 初始化连接池配置
         return jedisFactory;
+    }
+
+    // 这里才是设置session序列化的方法
+    @Bean
+    public RedisSerializer<Object> springSessionDefaultRedisSerializer() {
+        // 因为我使用的是FastJson
+        // 如果使用别的请自行设置，就是返回时返回序列化类即可
+        return new FastJsonRedisSerializer(Object.class);
     }
 }

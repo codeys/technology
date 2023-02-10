@@ -39,10 +39,10 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         // 3.配置过滤规则
         Map<String, String> filter = new HashMap<>();
-        filter.put("/loginPage","anon");
-        filter.put("/login","anon");
-        filter.put("/logout","logout");
-        filter.put("/**","authc");
+        filter.put("/**","anon");
+//        filter.put("/login","anon");
+//        filter.put("/logout","logout");
+//        filter.put("/**","authc");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filter);
         // 4.配置登录url

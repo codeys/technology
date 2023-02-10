@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8082
 #  ssl:
 #    key-store: classpath:cert/keystore.p12
 #    key-store-password: 123456
@@ -33,14 +33,14 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
     useGlobalDataSourceStat: true
   redis:
-#    host: 127.0.0.1
-#    port: 6379
-    password: 1qaz@WSX
+    host: 127.0.0.1
+    port: 6379
+    password:
     database: 0
     timeout: 2000
-    sentinel:
-      master: mymaster
-      nodes: 172.16.24.149:26379,172.16.24.149:26380,172.16.24.149:26381
+#    sentinel:
+#      master: mymaster
+#      nodes: 172.16.24.149:26379,172.16.24.149:26380,172.16.24.149:26381
   redis-two:
     host: 127.0.0.1
     port: 6379
@@ -52,6 +52,10 @@ spring:
       max-idle: 8
       min-idle: 2
       max-wait: 100
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
 #  security:
 #    user:
 #      name: admin
