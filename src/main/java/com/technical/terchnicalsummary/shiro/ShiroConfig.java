@@ -27,7 +27,6 @@ public class ShiroConfig {
         DefaultWebSecurityManager defaultWebSecurityManager = new DefaultWebSecurityManager();
         // 2.配置自定义realm
         defaultWebSecurityManager.setRealm(myRealm);
-
         return defaultWebSecurityManager;
     }
 

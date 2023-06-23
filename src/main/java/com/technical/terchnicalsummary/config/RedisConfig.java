@@ -7,6 +7,9 @@ package com.technical.terchnicalsummary.config;
  **/
 
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
+import org.redisson.Redisson;
+import org.redisson.api.RedissonClient;
+import org.redisson.config.Config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -92,5 +95,13 @@ public class RedisConfig {
         // 因为我使用的是FastJson
         // 如果使用别的请自行设置，就是返回时返回序列化类即可
         return new FastJsonRedisSerializer(Object.class);
+    }
+
+    @Bean
+    public RedissonClient redissonClient() {
+        Config config = new Config();
+        config.useSingleServer().setAddress("redis://127.0.0.1:6379");
+        RedissonClient client = Redisson.create(config);
+        return client;
     }
 }
