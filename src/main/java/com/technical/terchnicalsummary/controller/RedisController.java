@@ -71,7 +71,7 @@ public class RedisController {
             boolean lock = redisLock.tryLock(30, 10, TimeUnit.SECONDS);
             if (lock) {
                 String productStoreNum = redisUtils.getObject("productStoreNum",String.class);
-                if (productStoreNum== null && productStoreNum.equalsIgnoreCase("0")) {
+                if (productStoreNum== null || productStoreNum.equalsIgnoreCase("100")) {
                     log.error("已售罄");
                 }
                 int productStoreNumInt = Integer.parseInt(productStoreNum);
