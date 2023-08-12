@@ -13,27 +13,27 @@ spring:
     cache: false
     prefix: classpath:/templates/
     suffix: .html
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://172.16.24.147:3306/iam?serverTimezone=UTC&characterEncoding=utf8
-    username: pmi
-    password: mysql
-    type: com.alibaba.druid.pool.DruidDataSource
-    initialSize: 10
-    minIdle: 10
-    maxActive: 20
-    maxWait: 60000
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: SELECT 1 FROM DUAL
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    maxPoolPreparedStatementPerConnectionSize: 25
-    filters: stat,wall,slf4j
-    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
-    useGlobalDataSourceStat: true
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://172.16.24.147:3306/iam?serverTimezone=UTC&characterEncoding=utf8
+#    username: pmi
+#    password: mysql
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    initialSize: 10
+#    minIdle: 10
+#    maxActive: 20
+#    maxWait: 60000
+#    timeBetweenEvictionRunsMillis: 60000
+#    minEvictableIdleTimeMillis: 300000
+#    validationQuery: SELECT 1 FROM DUAL
+#    testWhileIdle: true
+#    testOnBorrow: false
+#    testOnReturn: false
+#    poolPreparedStatements: true
+#    maxPoolPreparedStatementPerConnectionSize: 25
+#    filters: stat,wall,slf4j
+#    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+#    useGlobalDataSourceStat: true
   redis:
     host: 127.0.0.1
     port: 6379
@@ -92,7 +92,7 @@ nacos:
     # 配置ID
     data-id: active-test
     # 配置文件类型,对应nacos配置页面的配置格式，默认是properties
-    type: properties
+    type: yaml
     # nacos服务器地址
     server-addr: 127.0.0.1:8848
     # 开启自动刷新nacos配置
