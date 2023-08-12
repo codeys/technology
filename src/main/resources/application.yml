@@ -7,15 +7,17 @@ server:
 #    key-alias: tomcat
 
 spring:
+  application:
+    name: technologyApp
   thymeleaf:
     cache: false
     prefix: classpath:/templates/
     suffix: .html
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://172.16.24.149:3308/hw_ums?serverTimezone=UTC&characterEncoding=utf8
-    username: hw
-    password: 1qaz2wsx!QAZ@WSX
+    url: jdbc:mysql://172.16.24.147:3306/iam?serverTimezone=UTC&characterEncoding=utf8
+    username: pmi
+    password: mysql
     type: com.alibaba.druid.pool.DruidDataSource
     initialSize: 10
     minIdle: 10
@@ -44,7 +46,7 @@ spring:
   redis-two:
     host: 127.0.0.1
     port: 6379
-    password: spc
+    password:
     timeout: 1000
     database: 2
     pool:
@@ -53,7 +55,7 @@ spring:
       min-idle: 2
       max-wait: 100
   session:
-    store-type: jdbc
+    store-type: none
     jdbc:
       initialize-schema: always
 #  security:
@@ -78,3 +80,35 @@ my:
       keepAliveTimeSeconds: 5
       queueCapacity: 5000
 
+nacos:
+  config:
+    bootstrap:
+      #开启系统启动时预读取nacos的配置，用于满足@Value注入数据的场景
+      enable: true
+    # 配置所属命名空间的id,此处我们配置名称为dev的id，可以在命名空间列表查看id的值
+    namespace: 0d6f4e5d-4249-4e90-957e-7ef367621824
+    # 配置所属分组
+    group: DEFAULT_GROUP
+    # 配置ID
+    data-id: active-test
+    # 配置文件类型,对应nacos配置页面的配置格式，默认是properties
+    type: properties
+    # nacos服务器地址
+    server-addr: 127.0.0.1:8848
+    # 开启自动刷新nacos配置
+    auto-refresh: true
+    # 针对配置项同名的情况，是否允许nacos的配置覆盖本地的配置
+    remote-first: true
+  discovery:
+    server-addr: 127.0.0.1:8848
+      #是否将本应用注册到nacos服务列表，默认是false
+    auto-register: true
+      #本服务所属的命名空间的ID，默认是空，也就是public
+    namespace: 0d6f4e5d-4249-4e90-957e-7ef367621824
+    register:
+      #本服务是否接受外部的请求，默认true
+      enabled: true
+      #本服务要注册到命名空间下的哪个组，默认DEFAULT_GROUP
+      group-name: DEFAULT_GROUP
+      #服务的名称，会展示在nacos服务列表，要求唯一，可以不写，默认是spring.application.name的值
+      service-name:

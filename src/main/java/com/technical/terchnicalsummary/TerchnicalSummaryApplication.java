@@ -1,5 +1,6 @@
 package com.technical.terchnicalsummary;
 
+import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.technical.terchnicalsummary.utils.SpringUtils;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -13,7 +14,7 @@ import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHtt
 @MapperScan(basePackages = {"com.technical.terchnicalsummary.mapper"})
 //@EnableGlobalMethodSecurity(securedEnabled=true,prePostEnabled = true)
 //@EnableRedisHttpSession
-@EnableJdbcHttpSession
+//@EnableJdbcHttpSession
 public class TerchnicalSummaryApplication {
 
     public static void main(String[] args) {
