@@ -20,9 +20,9 @@ public class RocketMqProducer {
 
     public static void main(String[] args) throws Exception  {
         DefaultMQProducer mqProducer = new DefaultMQProducer("testProducerGroup");
-        mqProducer.setNamesrvAddr("172.16.22.191:9876");
+        mqProducer.setNamesrvAddr("172.16.22.220:9876;172.16.24.150:9876");
         mqProducer.start();
-        orderSendMessage(mqProducer);
+        syncSendMessage(mqProducer);
         mqProducer.shutdown();
     }
 

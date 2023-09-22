@@ -18,14 +18,14 @@ public class RocketMqConsumer {
 
     public static void main(String[] args) throws Exception {
         DefaultMQPushConsumer mqPushConsumer = new DefaultMQPushConsumer("consumerGroup");
-        mqPushConsumer.setNamesrvAddr("172.16.22.191:9876");
-        mqPushConsumer.subscribe("orderTopic","*");
+        mqPushConsumer.setNamesrvAddr("172.16.22.220:9876");
+        mqPushConsumer.subscribe("testTopic","test");
         /**
          * 设置Consumer第一次启动是从队列头部开始消费还是队列尾部开始消费<br>
          * 如果非第一次启动，那么按照上次消费的位置继续消费
          */
         mqPushConsumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
-        orderMessage(mqPushConsumer);
+        syncMessage(mqPushConsumer);
 
         mqPushConsumer.start();
     }
